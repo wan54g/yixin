@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <title>关于我们 - 宜兴易纳唯新电子有限公司</title>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0466C8',
+            secondary: '#165DFF',
+            neutral: {
+              100: '#F5F7FA',
+              200: '#E4E7ED',
+              300: '#C0C6CF',
+              800: '#303133',
+              900: '#1E1E1E'
+            }
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+            'card-hover': '0 10px 30px rgba(4, 102, 200, 0.15)',
+          }
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .transition-custom {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .scale-hover {
+        transition: transform 0.3s ease;
+      }
+      .scale-hover:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+      .underline-animation {
+        position: relative;
+      }
+      .underline-animation::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: #0466C8;
+        transition: width 0.3s ease;
+      }
+      .underline-animation:hover::after {
+        width: 100%;
+      }
+      .nav-active::after {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-neutral-100 text-neutral-800 font-inter">
+  <!-- 导航栏 -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+      <!-- Logo 和公司名称 -->
+      <div class="flex items-center">
+        <div class="text-primary text-2xl md:text-3xl font-bold">宜兴易纳唯新电子</div>
+      </div>
+      
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-neutral-800 hover:text-primary transition-all duration-300 font-medium underline-animation">首页</a>
+        <a href="about.html" class="text-primary font-medium nav-active">关于我们</a>
+        <a href="products.html" class="text-neutral-800 hover:text-primary transition-all duration-300 font-medium underline-animation">产品中心</a>
+        <a href="news.html" class="text-neutral-800 hover:text-primary transition-all duration-300 font-medium underline-animation">新闻中心</a>
+        <a href="contact.html" class="text-neutral-800 hover:text-primary transition-all duration-300 font-medium underline-animation">联系我们</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button class="md:hidden text-neutral-800 text-xl" id="menuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none" id="mobileMenu">
+      <div class="container mx-auto px-4 py-3">
+        <nav class="flex flex-col space-y-3">
+          <a href="index.html" class="text-neutral-800 hover:text-primary py-2 transition-all duration-300">首页</a>
+          <a href="about.html" class="text-primary font-medium py-2">关于我们</a>
+          <a href="products.html" class="text-neutral-800 hover:text-primary py-2 transition-all duration-300">产品中心</a>
+          <a href="news.html" class="text-neutral-800 hover:text-primary py-2 transition-all duration-300">新闻中心</a>
+          <a href="contact.html" class="text-neutral-800 hover:text-primary py-2 transition-all duration-300">联系我们</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="relative h-[400px] md:h-[500px] bg-cover bg-center" style="background-image: url('images/宇宙.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-primary/40 flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] text-white font-bold mb-4 text-shadow">关于我们</h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-3xl mx-auto">专注于PTC加热元件研发与生产的制造企业</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主体内容 -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- 面包屑导航 -->
+    <div class="mb-8 text-sm text-neutral-600">
+      <a href="index.html" class="hover:text-primary transition-all duration-300">首页</a>
+      <span class="mx-2">/</span>
+      <span class="text-primary">关于我们</span>
+    </div>
+
+    <!-- 公司简介 -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+      <div class="order-2 md:order-1">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">宜兴易纳唯新电子有限公司</h2>
+        <p class="text-lg text-neutral-600 mb-6 leading-relaxed">
+          成立于2022年，位于江苏省宜兴市丁蜀镇陶都工业园，是上海帕克热敏陶瓷有限公司控股子公司。公司专注于PTC加热器组件的研发与生产，主要产品包括PTC加热管、洗地机和扫地机用PTC加热器等，致力于为客户提供可靠、高效的一站式加热解决方案。
+        </p>
+        <p class="text-lg text-neutral-600 mb-6 leading-relaxed">
+          公司拥有一支经验丰富的技术团队，核心工程师具备20年以上从业经验，掌握从配方研发到结构设计、电气控制的完整技术体系。我们始终坚持"质量为本、客户至上"的理念，注重技术创新与产品性能提升，已取得多项国家专利，产品质量稳定，客户满意度持续提升。
+        </p>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <div class="bg-white rounded-lg shadow-card p-4 flex items-start w-full md:w-auto">
+            <div class="text-primary text-3xl mr-4"><i class="fas fa-users"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">专业团队</h4>
+              <p class="text-neutral-600">20+年行业经验</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-card p-4 flex items-start w-full md:w-auto">
+            <div class="text-primary text-3xl mr-4"><i class="fas fa-certificate"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">多项认证</h4>
+              <p class="text-neutral-600">ISO9001、CQC认证</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-card p-4 flex items-start w-full md:w-auto">
+            <div class="text-primary text-3xl mr-4"><i class="fas fa-lightbulb"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">技术创新</h4>
+              <p class="text-neutral-600">多项国家专利</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 rounded-xl overflow-hidden shadow-xl">
+        <img src="images/5f7b2ef5708ddcf1f42785dae1bab0a5.jpg" alt="公司车间" class="w-full h-auto object-cover hover:scale-105 transition-all duration-700">
+      </div>
+    </section>
+
+    <!-- 发展历程 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-12 text-center text-neutral-900">发展历程</h2>
+      <div class="relative">
+        <!-- 时间线 -->
+        <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 transform md:-translate-x-1/2"></div>
+        
+        <!-- 时间点1 -->
+        <div class="relative z-10 mb-12">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+              <div class="bg-white p-6 rounded-xl shadow-card">
+                <h3 class="text-xl font-bold text-neutral-900 mb-2">公司成立</h3>
+                <p class="text-neutral-600">宜兴易纳唯新电子有限公司正式成立，开始专注于PTC加热元件的研发与生产。</p>
+              </div>
+            </div>
+            <div class="absolute left-0 md:left-1/2 w-6 h-6 bg-primary rounded-full transform md:-translate-x-1/2 shadow-lg"></div>
+            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+            <div class="md:hidden mt-2 text-sm font-medium text-primary">2022年</div>
+          </div>
+        </div>
+        
+        <!-- 时间点2 -->
+        <div class="relative z-10 mb-12">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+            <div class="absolute left-0 md:left-1/2 w-6 h-6 bg-primary rounded-full transform md:-translate-x-1/2 shadow-lg"></div>
+            <div class="md:w-1/2 md:pl-12 mb-6 md:mb-0">
+              <div class="bg-white p-6 rounded-xl shadow-card">
+                <h3 class="text-xl font-bold text-neutral-900 mb-2">第一条生产线投产</h3>
+                <p class="text-neutral-600">公司第一条自动化生产线正式投产，标志着公司生产能力的大幅提升。</p>
+              </div>
+            </div>
+            <div class="md:hidden mt-2 text-sm font-medium text-primary">2023年</div>
+          </div>
+        </div>
+        
+        <!-- 时间点3 -->
+        <div class="relative z-10 mb-12">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+              <div class="bg-white p-6 rounded-xl shadow-card">
+                <h3 class="text-xl font-bold text-neutral-900 mb-2">获得ISO9001认证</h3>
+                <p class="text-neutral-600">公司顺利通过ISO9001质量管理体系认证，标志着公司在质量管理方面达到了国际标准。</p>
+              </div>
+            </div>
+            <div class="absolute left-0 md:left-1/2 w-6 h-6 bg-primary rounded-full transform md:-translate-x-1/2 shadow-lg"></div>
+            <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+            <div class="md:hidden mt-2 text-sm font-medium text-primary">2024年</div>
+          </div>
+        </div>
+        
+        <!-- 时间点4 -->
+        <div class="relative z-10">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+            <div class="absolute left-0 md:left-1/2 w-6 h-6 bg-primary rounded-full transform md:-translate-x-1/2 shadow-lg"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-white p-6 rounded-xl shadow-card">
+                <h3 class="text-xl font-bold text-neutral-900 mb-2">新工厂竣工</h3>
+                <p class="text-neutral-600">公司新工厂正式竣工并投入使用，占地面积达30000平方米，年产能提升至500万台。</p>
+              </div>
+            </div>
+            <div class="md:hidden mt-2 text-sm font-medium text-primary">2025年</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- 工厂环境 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-12 text-center text-neutral-900">工厂环境</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="rounded-xl overflow-hidden shadow-xl scale-hover">
+          <img src="images/2a02477f10fda61243ba66140576841a.jpg" alt="工厂外观" class="w-full h-80 object-cover">
+        </div>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-neutral-900">现代化生产设施</h3>
+            <p class="text-neutral-600 mb-6">
+              我们拥有现代化生产车间、无尘组装线与自动化设备，严格执行质量管理体系，确保产品性能稳定、品质可靠。从原材料采购到成品出厂，每一个环节都经过严格的质量控制。
+            </p>
+            <div class="rounded-xl overflow-hidden shadow-lg scale-hover">
+              <img src="images/77897b08e68a2b74e5fd4e73da75ee82.jpg" alt="生产线" class="w-full h-60 object-cover">
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-neutral-900">研发与测试中心</h3>
+            <p class="text-neutral-600">
+              公司配备先进的研发设备和专业的测试仪器，拥有完善的产品研发和测试体系。我们不断投入资源进行技术创新和产品升级，以满足客户不断变化的需求。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- 公司证书 -->
+  <section class="bg-white py-16 rounded-2xl shadow-card mb-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center text-neutral-900">公司证书</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-neutral-100 rounded-xl overflow-hidden shadow-card scale-hover">
+          <img src="images/ISO9001.jpg" alt="ISO9001认证" class="w-full h-100 object-cover">
+          <div class="p-4 text-center">
+            <h4 class="font-bold text-neutral-900">ISO9001认证</h4>
+          </div>
+        </div>
+        <div class="bg-neutral-100 rounded-xl overflow-hidden shadow-card scale-hover">
+          <img src="images/CQC.jpg" alt="CQC认证" class="w-full h-100 object-cover">
+          <div class="p-4 text-center">
+            <h4 class="font-bold text-neutral-900">CQC认证</h4>
+          </div>
+        </div>
+        <div class="bg-neutral-100 rounded-xl overflow-hidden shadow-card scale-hover">
+          <img src="images/一种应用于洗地机的PTC加热器.jpg" alt="实用新型专利" class="w-full h-100 object-cover">
+          <div class="p-4 text-center">
+            <h4 class="font-bold text-neutral-900">实用新型专利</h4>
+          </div>
+        </div>
+        <div class="bg-neutral-100 rounded-xl overflow-hidden shadow-card scale-hover">
+          <img src="images/一种水加热器.jpg" alt="发明专利" class="w-full h-100 object-cover">
+          <div class="p-4 text-center">
+            <h4 class="font-bold text-neutral-900">发明专利</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 联系我们 -->
+    <section class="bg-white rounded-2xl shadow-card p-8 md:p-12">
+      <h2 class="text-3xl font-bold mb-10 text-center text-neutral-900">联系我们</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <form class="space-y-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">姓名</label>
+              <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300" placeholder="请输入您的姓名">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">邮箱</label>
+              <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300" placeholder="请输入您的邮箱">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-neutral-700 mb-1">留言内容</label>
+              <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300" placeholder="请输入您的留言内容"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
+              <span>发送信息</span>
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+        <div>
+          <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-neutral-900">联系方式</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <h4 class="font-medium text-neutral-900">地址</h4>
+                  <p class="text-neutral-600">宜兴市丁蜀镇陶都工业园中袁支路1号</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                  <h4 class="font-medium text-neutral-900">电话</h4>
+                  <p class="text-neutral-600">86-21-69168914</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-primary text-xl mt-1 mr-4"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <h4 class="font-medium text-neutral-900">邮箱</h4>
+                  <p class="text-neutral-600">zhangxiaoming@shpake.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-lg h-64">
+            <iframe class="w-full h-full" src="https://surl.amap.com/iO0qITDffFc" loading="lazy" style="border:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-neutral-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h4 class="text-xl font-bold mb-4">关于我们</h4>
+          <p class="text-neutral-300 mb-4">宜兴易纳唯新电子有限公司是一家专注于PTC加热元件研发、生产和销售的制造企业。</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-300 hover:text-primary transition-all duration-300">
+              <i class="fab fa-weixin text-xl"></i>
+            </a>
+            <a href="#" class="text-neutral-300 hover:text-primary transition-all duration-300">
+              <i class="fab fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-neutral-300 hover:text-primary transition-all duration-300">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-4">产品中心</h4>
+          <ul class="space-y-2">
+            <li><a href="product-detail.html" class="text-neutral-300 hover:text-primary transition-all duration-300">水PTC电热管</a></li>
+            <li><a href="product-detail-002.html" class="text-neutral-300 hover:text-primary transition-all duration-300">SPA泳池PTC电热管</a></li>
+            <li><a href="product-detail-003.html" class="text-neutral-300 hover:text-primary transition-all duration-300">毛巾架PTC电热管</a></li>
+            <li><a href="product-detail-004.html" class="text-neutral-300 hover:text-primary transition-all duration-300">扫地机PTC加热器</a></li>
+            <li><a href="product-detail-005.html" class="text-neutral-300 hover:text-primary transition-all duration-300">洗地机PTC加热器</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-neutral-300 hover:text-primary transition-all duration-300">首页</a></li>
+            <li><a href="about.html" class="text-neutral-300 hover:text-primary transition-all duration-300">关于我们</a></li>
+            <li><a href="products.html" class="text-neutral-300 hover:text-primary transition-all duration-300">产品中心</a></li>
+            <li><a href="news.html" class="text-neutral-300 hover:text-primary transition-all duration-300">新闻中心</a></li>
+            <li><a href="contact.html" class="text-neutral-300 hover:text-primary transition-all duration-300">联系我们</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-4">联系我们</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span class="text-neutral-300">宜兴市丁蜀镇陶都工业园中袁支路1号</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt text-primary mr-3"></i>
+              <span class="text-neutral-300">86-21-69168914</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-primary mr-3"></i>
+              <span class="text-neutral-300">zhangxiaoming@shpake.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-neutral-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm mb-4 md:mb-0">&copy; 2025 宜兴易纳唯新电子有限公司. 保留所有权利.</p>
+          <div class="flex items-center space-x-6">
+            <a href="#" class="text-neutral-400 hover:text-primary text-sm transition-all duration-300">隐私政策</a>
+            <a href="#" class="text-neutral-400 hover:text-primary text-sm transition-all duration-300">网站地图</a>
+            <a href="#" class="text-neutral-400 hover:text-primary text-sm transition-all duration-300">法律声明</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-lg');
+        navbar.classList.remove('bg-white');
+      } else {
+        navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-lg');
+        navbar.classList.add('bg-white');
+      }
+    });
+    
+    // 移动端菜单
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('opacity-0')) {
+        mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+    
+    // 表单提交处理
+    const contactForm = document.querySelector('form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // 这里可以添加表单验证和提交逻辑
+      alert('感谢您的留言，我们将尽快与您联系！');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
+  
